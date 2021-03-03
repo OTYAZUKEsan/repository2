@@ -1,1 +1,29 @@
-aaaa
+CREATE TABLE until_now_book (
+  Booktitle VARCHAR(50) NOT NULL,
+  INDEX Booktitleindex(Booktitle),
+  Memberid INT(5) NOT NULL,
+  INDEX Memberidindex(Memberid),
+  FOREIGN KEY FKMemberid(Memberid) REFERENCES mst_Member(Memberid),
+  Max_page INT NOT NULL,
+    
+  PRIMARY KEY (Memberid, Booktitle)
+);
+
+CREATE TABLE tr_Deymail(
+    D_reportId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,    
+    Subject TEXT NOT NULL,
+    Booktitle VARCHAR(50) NOT NULL,
+
+    FOREIGN KEY FKBooktitle(Booktitle) REFERENCES until_now_book(Booktitle),
+    Contents TEXT NOT NULL,
+    Memberid INT(5),
+    INDEX Memberidindex(Memberid),
+    FOREIGN KEY FKMemberid(Memberid) REFERENCES mst_Member(Memberid),
+    NOW_PAGE INT,
+    Date_Year DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
+    Problem_Contents TEXT,
+    Mark_flg BOOLEAN DEFAULT'0',
+    Project_id INT(5),
+    INDEX Project_idindex(Project_id),
+    FOREIGN KEY FKProject_id(Project_id) REFERENCES Project_table(Project_id)
+);
