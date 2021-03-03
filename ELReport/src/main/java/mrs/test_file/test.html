@@ -1,10 +1,1 @@
-CREATE TABLE until_now_book (
-  Booktitle VARCHAR(50) NOT NULL,
-  INDEX Booktitleindex(Booktitle),
-  Memberid INT(5) NOT NULL,
-  INDEX Memberidindex(Memberid),
-  FOREIGN KEY FKMemberid(Memberid) REFERENCES mst_Member(Memberid),
-  Max_page INT NOT NULL,
-    
-  PRIMARY KEY (Memberid, Booktitle)
-);
+
